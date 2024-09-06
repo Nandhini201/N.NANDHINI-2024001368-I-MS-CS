@@ -1,0 +1,480 @@
+C:\Program Files\MongoDB\mongosh-2.3.0-win32-x64\bin>mongosh
+Current Mongosh Log ID: 66da29ea0e14581c812710bb
+
+
+
+test> db.msc.insertOne({id:101,name:"gayu"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66da2a1d0e14581c812710bc')
+}
+
+
+
+test> db.msc.insertMany([,{id:101,name:"gayu",age:26},{id:102,name:"bhuvi",age:19},{id:103,name:"revathi",age:29},{id:104,name:"banu",age:20},{id:105,name:"rathi",age:45},{id:106,name:"anand",age:46},{id:107,name:"vinith",age:35},{id:108,name:"mahesh",age:32},{id:109,name:"soniya",age:34}])
+{
+  acknowledged: true,
+  insertedIds: {
+    
+    '1': ObjectId('66da2ae90e14581c812710be'),
+    '2': ObjectId('66da2ae90e14581c812710bf'),
+    '3': ObjectId('66da2ae90e14581c812710c0'),
+    '4': ObjectId('66da2ae90e14581c812710c1'),
+    '5': ObjectId('66da2ae90e14581c812710c2'),
+    '6': ObjectId('66da2ae90e14581c812710c3'),
+    '7': ObjectId('66da2ae90e14581c812710c4'),
+    '8': ObjectId('66da2ae90e14581c812710c5'),
+    '9': ObjectId('66da2ae90e14581c812710c6')
+  }
+}
+
+
+
+test> db.msc.find()
+[
+  {
+    _id: ObjectId('66da2ae90e14581c812710be'),
+    id: 101,
+    name: 'gayu',
+    age: 26
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710bf'),
+    id: 102,
+    name: 'bhuvi',
+    age: 19
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c0'),
+    id: 103,
+    name: 'revathi',
+    age: 29
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c1'),
+    id: 104,
+    name: 'banu',
+    age: 20
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c2'),
+    id: 105,
+    name: 'rathi',
+    age: 45
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c3'),
+    id: 106,
+    name: 'anand',
+    age: 46
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c4'),
+    id: 107,
+    name: 'vinith',
+    age: 35
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c5'),
+    id: 108,
+    name: 'mahesh',
+    age: 32
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c6'),
+    id: 109,
+    name: 'soniya',
+    age: 34
+  }
+]
+
+
+
+test> db.msc.updateOne({name:"vinith"},{$set:{name:"mahesh"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+
+
+test> db.msc.updateMany({name:"mahesh"},{$set:{id:109,name:"soniya"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+test> db.msc.deleteOne({name:"mahesh"})
+{ acknowledged: true, deletedCount: 1 }
+
+
+
+
+test> db.msc.find().sort()
+[
+  { _id: ObjectId('66da2a1d0e14581c812710bc'), id: 101, name: 'gayu' },
+  {
+    _id: ObjectId('66da2ae90e14581c812710bd'),
+    id: 101,
+    name: 'gayu',
+    age: 24
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710be'),
+    id: 102,
+    name: 'bhuvi',
+    age: 26
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710bf'),
+    id: 102,
+    name: 'bhuvi',
+    age: 19
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c0'),
+    id: 103,
+    name: 'kokila',
+    age: 29
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c2'),
+    id: 105,
+    name: 'ramya',
+    age: 45
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c3'),
+    id: 106,
+    name: 'krithu',
+    age: 46
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c4'),
+    id: 107,
+    name: 'jeya',
+    age: 35
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c5'),
+    id: 108,
+    name: 'maha',
+    age: 32
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c6'),
+    id: 109,
+    name: 'sonu',
+    age: 34
+  }
+]
+
+
+
+test> db.msc.find().sort({name:-1})
+[
+  {
+    _id: ObjectId('66da2ae90e14581c812710c6'),
+    id: 109,
+    name: 'sonu',
+    age: 34
+  },
+  { _id: ObjectId('66da2a1d0e14581c812710bc'), id: 100, name: 'reva' },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c2'),
+    id: 105,
+    name: 'ramya',
+    age: 45
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710bf'),
+    id: 102,
+    name: 'puni',
+    age: 19
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710be'),
+    id: 101,
+    name: 'nandhu',
+    age: 26
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c5'),
+    id: 108,
+    name: 'maha',
+    age: 32
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c3'),
+    id: 106,
+    name: 'krithu',
+    age: 46
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c0'),
+    id: 103,
+    name: 'kokila',
+    age: 29
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c4'),
+    id: 107,
+    name: 'jeya',
+    age: 35
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710bd'),
+    id: 101,
+    name: 'jana',
+    age: 24
+  }
+]
+
+
+
+
+test> db.msc.find().sort({name:1})
+[
+  {
+    _id: ObjectId('66da2ae90e14581c812710bd'),
+    id: 101,
+    name: 'jana',
+    age: 24
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c4'),
+    id: 107,
+    name: 'jeya',
+    age: 35
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c0'),
+    id: 103,
+    name: 'kokila',
+    age: 29
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c3'),
+    id: 106,
+    name: 'krithu',
+    age: 46
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c5'),
+    id: 108,
+    name: 'maha',
+    age: 32
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710be'),
+    id: 101,
+    name: 'nandhu',
+    age: 26
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710bf'),
+    id: 102,
+    name: 'puni',
+    age: 19
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c2'),
+    id: 105,
+    name: 'ramya',
+    age: 45
+  },
+  { _id: ObjectId('66da2a1d0e14581c812710bc'), id: 100, name: 'reva' },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c6'),
+    id: 109,
+    name: 'sonu',
+    age: 34
+  }
+]
+
+
+
+test> db.msc.find().skip(2)
+[
+  {
+    _id: ObjectId('66da2ae90e14581c812710be'),
+    id: 101,
+    name: 'nandhu',
+    age: 26
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710bf'),
+    id: 102,
+    name: 'puni',
+    age: 19
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c0'),
+    id: 103,
+    name: 'kokila',
+    age: 29
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c2'),
+    id: 105,
+    name: 'ramya',
+    age: 45
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c3'),
+    id: 106,
+    name: 'krithu',
+    age: 46
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c4'),
+    id: 107,
+    name: 'jeya',
+    age: 35
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c5'),
+    id: 108,
+    name: 'maha',
+    age: 32
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c6'),
+    id: 109,
+    name: 'sonu',
+    age: 34
+  }
+]
+
+
+
+test> db.msc.find().sort({name:1}).limit(2)
+[
+  {
+    _id: ObjectId('66da2ae90e14581c812710bd'),
+    id: 101,
+    name: 'jana',
+    age: 24
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c4'),
+    id: 107,
+    name: 'jeya',
+    age: 35
+  }
+]
+
+
+
+
+test> db.msc.find({age:{$gt:20}})
+[
+  {
+    _id: ObjectId('66da2ae90e14581c812710bd'),
+    id: 101,
+    name: 'jana',
+    age: 24
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710be'),
+    id: 101,
+    name: 'nandhu',
+    age: 26
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c0'),
+    id: 103,
+    name: 'kokila',
+    age: 29
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c2'),
+    id: 105,
+    name: 'ramya',
+    age: 45
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c3'),
+    id: 106,
+    name: 'krithu',
+    age: 46
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c4'),
+    id: 107,
+    name: 'jeya',
+    age: 35
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c5'),
+    id: 108,
+    name: 'maha',
+    age: 32
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c6'),
+    id: 109,
+    name: 'sonu',
+    age: 34
+  }
+]
+
+
+
+
+test> db.msc.find({age:{$lt:36}})
+[
+  {
+    _id: ObjectId('66da2ae90e14581c812710bd'),
+    id: 101,
+    name: 'jana',
+    age: 24
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710be'),
+    id: 101,
+    name: 'nandhu',
+    age: 26
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710bf'),
+    id: 102,
+    name: 'puni',
+    age: 19
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c0'),
+    id: 103,
+    name: 'kokila',
+    age: 29
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c4'),
+    id: 107,
+    name: 'jeya',
+    age: 35
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c5'),
+    id: 108,
+    name: 'maha',
+    age: 32
+  },
+  {
+    _id: ObjectId('66da2ae90e14581c812710c6'),
+    id: 109,
+    name: 'sonu',
+    age: 34
+  }
+]
+
+
+
